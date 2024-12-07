@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GuardChat</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- icon-->
+    <link rel="icon" href="https://raw.githubusercontent.com/Sotravil/ChatGuard/refs/heads/main/a02883f4-a1a2-447a-a5cd-1914e9e199dd.webp" type="image/png">
+
+    <!-- Open Graph meta tags -->
+    <meta property="og:title" content="GuardChat">
+    <meta property="og:description" content="the dark web that guards your freedom of expression.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/Sotravil/ChatGuard/refs/heads/main/02f8b8a7-0ed2-49c9-890a-7adc6313f784%7E2.jpg">
+    <meta property="og:url" content="https://yourwebsite.com">
+    <meta property="og:type" content="website">
+
+</head>
+<body>
+    <!-- Neon Decoration Bar -->
+    <div class="neon-decoration"></div>
+
+    <!-- Dashboard Container -->
+    <div id="dashboard">
+        <!-- Sidebar Navigation -->
+        <div id="sidebar">
+            <h2>Menu</h2>
+            <ul>
+                <li><a href="#feed-section" class="menu-link active" id="feedLink">Feed</a></li>
+                <li><a href="#chats" class="menu-link" id="chatsLink">Chats</a></li>
+                <li><a href="#profile" class="menu-link" id="profileLink">Profile</a></li>
+                <li><a href="#about" class="menu-link" id="aboutLink">About</a></li>
+                <li><a href="#settings" class="menu-link" id="settingsLink">Settings</a></li>
+                <li><a href="#sub" class="menu-link" id="subLink">subs <br>and Billing</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content Area -->
+        <div id="main-content">
+            <!-- Registration Section -->
+            <section id="register-section" class="dashboard-section">
+                <h1>Register</h1>
+                <form id="registerForm">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required />
+                    
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required />
+                    
+                    <label for="gender">Gender:</label>
+                    <select id="gender" name="gender" required>
+                        <option value="">Select</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" name="age" min="13" required />
+
+                    <div id="mathVerification">
+                        <!-- Math verification will be dynamically added here -->
+                    </div>
+
+                    <button type="button" id="startMathTest">Verify Age</button>
+                    <button type="submit" disabled id="registerSubmit">Register</button>
+                </form>
+            </section>
+
+            <!-- Feed Section -->
+            <section id="feed-section" class="dashboard-section">
+                <h1>Feed</h1>
+                <div id="feed"></div>
+                
+            </section>
+
+            <!-- Chats Section -->
+            <section id="chats" class="dashboard-section">
+                <h1>Chats</h1>
+                <div id="chat-list">
+                    <div id="messageOutput" class="chat-output"></div>
+                    <input id="messageInput" type="text" placeholder="Type your message here..." />
+                    <button id="sendMessage">Send</button>
+                    <!-- Chat list will be dynamically populated -->
+                </div>
+            </section>
+
+            <!-- Profile Section -->
+            <section id="profile" class="dashboard-section">
+                <h1>Profile</h1>
+                <div id="profile-info">
+                    <p><strong>Avatar:</strong> <img id="avatarDisplay" src="https://i.pinimg.com/736x/dc/9c/61/dc9c614e3007080a5aff36aebb949474.jpg" alt="Avatar" style="width:50px; height:50px; border-radius:50%; border:2px solid #fff; object-fit:cover; box-shadow:0 0 10px #fff, 0 0 20px #aaaaaa; transition:transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 0 20px #fff, 0 0 30px #aaaaaa';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 10px #fff, 0 0 20px #aaaaaa';" onmousedown="this.style.transform='scale(0.95)'; this.style.boxShadow='0 0 10px #fff, 0 0 15px #aaaaaa';" onmouseup="this.style.transform='scale(1.1)'; this.style.boxShadow='0 0 20px #fff, 0 0 30px #aaaaaa';"></p>
+                    <p><strong>ID:</strong> <span id="userId">Loading...</span></p>
+                    <p><strong>Username:</strong> <span id="usernameDisplay">Loading...</span></p>
+                    <p><strong>Bio:</strong> <span id="bioDisplay">Loading...</span></p>
+                    <p><strong>Status:</strong> <span id="statusDisplay">Loading...</span></p>
+                    <p><strong>Last Seen:</strong> <span id="lastSeenDisplay">Loading...</span></p>
+                    <p><strong>Joined Date:</strong> <span id="joinedDateDisplay">Loading...</span></p>
+                    <p><strong>Views:</strong> <span id="viewsDisplay">Loading...</span></p>
+                    <p><strong>Likes:</strong> <span id="likesDisplay">Loading...</span></p>
+                    <p><strong>Level:</strong> <span id="levelDisplay">Loading...</span></p>
+                    <p><strong>Coins:</strong> <span id="coinsDisplay">Loading...</span></p>
+                    <p><strong>Friends:</strong> <span id="friendsDisplay">Loading...</span></p>
+                    <p><strong>Groups:</strong> <span id="groupsDisplay">Loading...</span></p>
+                    <p><strong>Notifications:</strong></p>
+                    <ul>
+                        <li>Messages: <span id="messageNotificationsDisplay">Loading...</span></li>
+                        <li>Groups: <span id="groupNotificationsDisplay">Loading...</span></li>
+                        <li>Friend Requests: <span id="friendRequestNotificationsDisplay">Loading...</span></li>
+                    </ul>
+                    <p><strong>Theme:</strong> <span id="themeDisplay">Loading...</span></p>
+                    <p><strong>Language:</strong> <span id="languageDisplay">Loading...</span></p>
+                </div>
+            </section>
+                
+            <!-- About Section -->
+            <section id="about" class="dashboard-section">
+                <h1>About</h1>
+                <div id="about-info">
+                    <p>Welcome to the about section. Here you can learn more about this application and its features.</p>
+                    <p>This application is designed to provide a seamless user experience, including a feed, chat functionality, profile management, and customizable settings.</p>
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+        <section id="settings" class="dashboard-section">
+            <h1>Settings</h1>
+            <!-- Settings Sections -->
+            <details class="settings-section">
+                <summary>Profile Settings</summary>
+                <ul>
+                    <li>Avatar: Change or update your profile picture.</li>
+                    <li>Username: Set or update your username.</li>
+                    <li>Bio: Edit a short bio or description.</li>
+                    <li>Status: Update your status (e.g., "Available," "Do Not Disturb").</li>
+                    <li>Last Seen & Online Status: Set visibility of your online status.</li>
+                    <li>Privacy Level:
+                        <ul>
+                            <li>Public Feeder: Allow sharing of messages/comments anonymously in feeds.</li>
+                            <li>Private Feeder: Share content anonymously from private chats without displaying personal info.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </details>
+
+            <details class="settings-section">
+                <summary>Chat and Feed Settings</summary>
+                <ul>
+                    <li>Theme: Customize chat appearance (e.g., Light, Dark, Custom).</li>
+                    <li>Language: Set your preferred language.</li>
+                    <li>Global and Private Chat Preferences:
+                        <ul>
+                            <li>Like, comment, and forward options for messages.</li>
+                            <li>Privacy control for forwarded messages to display or hide identity.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </details>
+
+            <details class="settings-section">
+                <summary>Gambling & Poll Features</summary>
+                <ul>
+                    <li>Poll Preferences:
+                        <ul>
+                            <li>Allow participation in global polls.</li>
+                            <li>Share gambling results in feed anonymously or with user consent.</li>
+                        </ul>
+                    </li>
+                    <li>Game Participation Settings: Choose to display or hide your gaming activities in the feed.</li>
+                </ul>
+            </details>
+
+            <details class="settings-section">
+                <summary>Gameplay Settings</summary>
+                <ul>
+                    <li>Difficulty Level: Customize the difficulty for in-app games.</li>
+                    <li>Achievements & Badges: Display or hide achievements in profile.</li>
+                    <li>Coins and Level:
+                        <ul>
+                            <li>View current coin balance and level.</li>
+                            <li>Control whether your level is visible to others.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </details>
+
+            <details class="settings-section">
+                <summary>Account and Data</summary>
+                <ul>
+                    <li>Link Accounts: Link third-party accounts for login.</li>
+                    <li>Backup Chats: Enable/disable chat and feed data backup.</li>
+                    <li>Delete Account: Permanently delete account and data.</li>
+                </ul>
+            </details>
+
+            <details class="settings-section">
+                <summary>Friends, Groups, and Feeds</summary>
+                <ul>
+                    <li>Friends & Groups Management:
+                        <ul>
+                            <li>View and manage friends and groups.</li>
+                            <li>Control who can add you to groups.</li>
+                        </ul>
+                    </li>
+                    <li>Feed Visibility: Allow posts/comments in feeds based on privacy (public, friends only, anonymous).</li>
+                    <li>Anonymous Forwarding: Choose to forward messages to feeds anonymously.</li>
+                </ul>
+            </details>
+
+            <details class="settings-section">
+                <summary>Audio and Graphics (for Game Features)</summary>
+                <ul>
+                    <li>Sound Effects: Enable or disable chat and game sounds.</li>
+                    <li>Graphics Quality: Adjust graphics settings (Low, Medium, High) for in-game visuals.</li>
+                </ul>
+            </details>
+
+            <details class="settings-section">
+                <summary>Advanced Settings</summary>
+                <ul>
+                    <li>Developer Options (for beta features).</li>
+                    <li>Performance Metrics: Enable performance tracking (e.g., FPS, server ping).</li>
+                </ul>
+            </details>
+
+            <details class="settings-section">
+                <summary>Help and Support</summary>
+                <ul>
+                    <li>FAQ & Tutorials: Access frequently asked questions and game tutorials.</li>
+                    <li>Contact Support: Reach support via chat or email.</li>
+                    <li>Community Forum: Engage with the community for tips and discussions.</li>
+                </ul>
+            </details>
+        </section>
+
+                
+            <!-- About Section -->
+            <section id="sub" class="dashboard-section">
+                <h1>Subscription and Billing</h1>
+                <div id="billing-info">
+                    <p>Your subscription status (active)</p>
+                    <p>Your subscription: 10 coins</p>
+                    <p>next billing: 1/15/2025</p>
+                </div>
+            </section>
+                <button id="logout">Logout</button>
+            </section>
+        </div>
+    </div>
+
+    <!-- Neon Decoration Bar -->
+    <div class="neon-decoration"></div>
+
+    <!-- Scripts -->
+    <script type="module" src="C:\Users\lsotr\OneDrive\Documents\Chat\main.js"></script>
+</body>
+</html>
